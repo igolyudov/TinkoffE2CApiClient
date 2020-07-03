@@ -15,10 +15,10 @@ import java.util.Map;
 @Slf4j
 public class TinkoffClient {
 
-    public void signed(Map<String,String> mapForSign, SignedRequest signedRequest)
+    public void signed(SignedRequest signedRequest)
     {
         CryptoMapi crypto = new CryptoMapi();
-        String data = crypto.concatValues(mapForSign);
+        String data = crypto.concatValues(signedRequest.getMapForSign());
 
         byte[] digestData = null;
         byte[] signature = null;
