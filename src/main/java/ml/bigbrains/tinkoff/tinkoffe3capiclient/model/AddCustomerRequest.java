@@ -2,12 +2,14 @@ package ml.bigbrains.tinkoff.tinkoffe3capiclient.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.ToString;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Data
+@ToString(callSuper = true)
 public class AddCustomerRequest extends SignedRequest{
     @JsonProperty("TerminalKey")
     private String terminalKey;
