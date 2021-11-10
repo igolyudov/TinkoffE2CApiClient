@@ -14,7 +14,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import ru.CryptoPro.JCP.ASN.CryptographicMessageSyntax.CONTENT_TYPE;
 import ru.CryptoPro.JCP.JCP;
 import ru.tinkoff.crypto.mapi.CryptoMapi;
 
