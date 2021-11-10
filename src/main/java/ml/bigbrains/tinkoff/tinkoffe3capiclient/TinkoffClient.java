@@ -14,12 +14,15 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 import ru.CryptoPro.JCP.JCP;
 import ru.tinkoff.crypto.mapi.CryptoMapi;
+import ru.tinkoff.crypto.mapi.RsaCryptoMapi;
 
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -56,6 +59,28 @@ public class TinkoffClient {
         signedRequest.setSignatureValue(Base64.getEncoder().encodeToString( signature));
         signedRequest.setX509SerialNumber(x509SerialNumber);
     }
+
+    public void signedRSA(SignedRequest signedRequest, String publicKeyBase64, String x509SerialNumber)
+    {
+        RsaCryptoMapi crypto = new RsaCryptoMapi();
+        String data = crypto.concatValues(signedRequest.getMapForSign());
+
+        byte[] digestData = null;
+        byte[] signature = null;
+        try {
+            final PKCS8EncodedKeySpec pkcs8EncodedKeySpec = new PKCS8EncodedKeySpec(org.apache.commons.codec.binary.Base64.decodeBase64(publicKeyBase64));
+            PrivateKey privateKey = KeyFactory.getInstance("RSA").generatePrivate(pkcs8EncodedKeySpec);
+            digestData = crypto.calcDigest(data.getBytes(StandardCharsets.UTF_8));
+            signature = crypto.calcSignature(privateKey, digestData);
+
+        } catch (Exception e) {
+            log.error("Error in calc RSA digest or sign for request",e);
+        }
+        signedRequest.setDigestValue( Base64.getEncoder().encodeToString(digestData));
+        signedRequest.setSignatureValue(Base64.getEncoder().encodeToString( signature));
+        signedRequest.setX509SerialNumber(x509SerialNumber);
+    }
+
 
 
     public GenericResponse post(String url, SignedRequest request) throws IOException {
