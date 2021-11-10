@@ -23,7 +23,7 @@ public class GetCardListRequest extends SignedRequest {
         if(StringUtils.isNotEmpty(terminalKey))
             data.put("TerminalKey",terminalKey);
         if(StringUtils.isNotEmpty(customerKey))
-            data.put("CustomerKay", customerKey);
+            data.put("CustomerKey", customerKey);
         if(StringUtils.isNotEmpty(ip))
             data.put("IP",ip);
         return data;

@@ -25,5 +25,11 @@ public class GenericResponse {
     private String message;
     @JsonProperty("Details")
     private String details;
+    @JsonProperty("RequestKey")
+    private String requestKey;
+    @JsonProperty("CustomerKey")
+    private String customerKey;
+    @JsonProperty("Token")
+    private String token;
 
 }

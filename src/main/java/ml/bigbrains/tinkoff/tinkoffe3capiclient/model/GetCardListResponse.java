@@ -11,7 +11,7 @@ public class GetCardListResponse {
     private String cardId;
     @JsonProperty("Status")
     private String status;
-    @JsonProperty("Rebilld")
+    @JsonProperty("RebillId")
     private Long rebilld;
     @JsonProperty("CardType")
     private Integer cardType;

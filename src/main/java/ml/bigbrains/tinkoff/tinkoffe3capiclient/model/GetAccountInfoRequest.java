@@ -8,23 +8,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Data
-public class GetCustomerRequest extends SignedRequest{
+public class GetAccountInfoRequest extends SignedRequest{
     @JsonProperty("TerminalKey")
     private String terminalKey;
-    @JsonProperty("CustomerKey")
-    private String customerKey;
-    @JsonProperty("IP")
-    private String ip;
 
     @Override
-    public Map<String, String> getMapForSign() {
+    public Map<String,String> getMapForSign() {
         Map<String,String> data = new HashMap<>();
         if(StringUtils.isNotEmpty(terminalKey))
             data.put("TerminalKey",terminalKey);
-        if(StringUtils.isNotEmpty(customerKey))
-            data.put("CustomerKey", customerKey);
-        if(StringUtils.isNotEmpty(ip))
-            data.put("IP",ip);
         return data;
+
     }
 }

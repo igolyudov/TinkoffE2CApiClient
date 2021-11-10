@@ -24,7 +24,7 @@ public class RemoveCardRequest extends SignedRequest {
         if(StringUtils.isNotEmpty(String.valueOf(cardId)))
             data.put("CardId",String.valueOf(cardId));
         if(StringUtils.isNotEmpty(customerKey))
-            data.put("CustomerKay", customerKey);
+            data.put("CustomerKey", customerKey);
         return data;
     }
 }

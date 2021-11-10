@@ -1,5 +1,7 @@
 package ml.bigbrains.tinkoff.tinkoffe3capiclient.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
@@ -44,7 +46,7 @@ public class InitRequest extends SignedRequest {
         if(StringUtils.isNotEmpty(String.valueOf(currency)))
             data.put("Currency", String.valueOf(currency));
         if(StringUtils.isNotEmpty(customerKey))
-            data.put("CustomerKay", customerKey);
+            data.put("CustomerKey", customerKey);
         if(StringUtils.isNotEmpty(this.data))
             data.put("DATA",this.data);
         return data;

@@ -5,12 +5,9 @@ import lombok.Data;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import ru.CryptoPro.JCP.JCP;
-import ru.tinkoff.crypto.mapi.CryptoMapi;
-
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 
 @Data
 @Slf4j
