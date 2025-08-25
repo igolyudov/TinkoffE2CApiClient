@@ -10,7 +10,7 @@
 
     <properties>
         <httpclient.version>4.5.13</httpclient.version>
-        <commons-lang.version>3.10</commons-lang.version>
+        <commons-lang.version>3.18.0</commons-lang.version>
         <lombok.version>1.18.12</lombok.version>
         <junit.version>4.13.1</junit.version>
         <slf4j.version>1.7.30</slf4j.version>
